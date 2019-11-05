@@ -9,13 +9,14 @@ const port = process.env.PORT || 8000;
 
 const blogRouter = require('./routes/blog');
 const authRouter = require('./routes/auth');
-const userRouter = require('./routes/user')
+const userRouter = require('./routes/user');
+const categoryRouter = require('./routes/category');
 // app 
 const app = express();
 
 //db
-mongoose.connect(process.env.DB_CLOUD, {useNewUrlParser: true, useUnifiedTopology: true})
-  .then(() => console.log(`DB_CLOUD connect`))
+mongoose.connect(process.env.DB_LOCAL, {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => console.log(`DB_LOCAL connect`))
 
 // middleware
 app.use(morgan('dev'))
@@ -29,6 +30,7 @@ app.use(cors({origin: `${process.env.CLIENT_URL}`}));
 app.use('/api', blogRouter)
 app.use('/api', authRouter)
 app.use('/api', userRouter)
+app.use('/api', categoryRouter)
 // server
 
 app.listen(port, () => {
