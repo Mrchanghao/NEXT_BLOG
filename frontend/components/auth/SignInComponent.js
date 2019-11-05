@@ -34,8 +34,12 @@ const SignInComponent = () => {
       const {data} = res;
       
       authenticate(data, () => {
+        if(isAuth() && isAuth().role === 1) {
+          Router.push('/')
+        } else {
+          Router.push('/user')
+        }
         
-        Router.push('/')
       })
   
     })
