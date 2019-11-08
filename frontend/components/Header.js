@@ -16,6 +16,11 @@ import {
   DropdownItem
 } from 'reactstrap';
 import Router from 'next/router';
+import NProgress from 'nprogress';
+
+Router.onRouteChangeStart = () => NProgress.start();
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done();
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
