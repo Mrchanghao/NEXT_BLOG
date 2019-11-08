@@ -11,6 +11,7 @@ const blogRouter = require('./routes/blog');
 const authRouter = require('./routes/auth');
 const userRouter = require('./routes/user');
 const categoryRouter = require('./routes/category');
+const tagRouter = require('./routes/tag');
 // app 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/api', blogRouter)
 app.use('/api', authRouter)
 app.use('/api', userRouter)
 app.use('/api', categoryRouter)
+app.use('/api', tagRouter)
 // server
 
 app.listen(port, () => {
