@@ -2,7 +2,7 @@ import axios from 'axios';
 import {API} from '../config'
 import Cookie from 'js-cookie';
 
-export const createTag = (category, token) => {
+export const createCategory = (category, token) => {
   return axios.post(`${API}/category`, category, {
     headers: {
       Authorization: `Bearer ${token}`

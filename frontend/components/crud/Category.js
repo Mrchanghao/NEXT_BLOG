@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { getCookie } from '../../actions/auth';
 
-import { createTag, getCategories, removeCategory } from '../../actions/category';
+import { createCategory, getCategories, removeCategory } from '../../actions/category';
 
 const Category = () => {
   const [values, setValues] = useState({
@@ -48,33 +48,30 @@ const Category = () => {
     };
  
     const deleteConfirm = slug => {
-        let answer = window.confirm('Are you sure you want to delete this category?');
-        if (answer) {
+        let yes = window.confirm('Are you sure you want to delete this category?');
+        if (yes) {
             deleteCategory(slug);
         }
     };
  
-    const deleteCategory = slug => {
-        // console.log('delete', slug);
-      // removeCategory(slug, token).then(data => {
-      //   if (data.error) {
-      //     console.log(data.error);
-      //   } else {
-      //     setValues({ ...values, error: false, success: false, name: '', removed: !removed, reload: !reload });
-      //   }
-      //   });
+    const deleteCategory = async (slug) => {
+        console.log('delete', slug);
+        try {
+          const  data = await removeCategory(slug, token)
+          setValues({...values, error: false, success: false, name: '', removed: !removed, reload: !reload});
+          
+        } catch (error) {
+          console.log(error.message)
+        }
     };
  
     const submitHandler = e => {
       e.preventDefault();
-      // console.log('createTag category', name);
-      createTag({ name }, token).then(data => {
-        setValues({ ...values, error: false, success: true, name: '' });
-        // if (data.error) {
-        //   setValues({ ...values, error: data.error, success: false });
-        // } else {
-        //   setValues({ ...values, error: false, success: false, name: '', removed: !removed, reload: !reload });
-        //   }
+      // console.log('createCategory category', name);
+      createCategory({ name }, token).then(data => {
+        // setValues({ ...values, error: false, success: true, name: '', removed: !removed, reload: !reload });
+        setValues({ ...values, error: false, success: true, name: '', reload: !reload });
+
         console.log(data)
       }).catch(err => {
         console.log(err.message)

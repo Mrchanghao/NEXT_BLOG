@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Admin from '../../../components/auth/Admin';
 
 import Category from '../../../components/crud/Category';
+import Tag from '../../../components/crud/Tag';
 
 
 const CategoryTag = () => {
@@ -17,8 +18,8 @@ const CategoryTag = () => {
           <div className='col-md-6'>
             <Category />
           </div>
-          <div className='col-md-6'>
-            <p> Tags </p>
+          <div className='col-md-6' >
+            <Tag />
           </div>
         </div>
       </Admin>
