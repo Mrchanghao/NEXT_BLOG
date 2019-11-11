@@ -7,11 +7,11 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 const port = process.env.PORT || 8000;
 
-const blogRouter = require('./routes/blog');
-const authRouter = require('./routes/auth');
-const userRouter = require('./routes/user');
-const categoryRouter = require('./routes/category');
-const tagRouter = require('./routes/tag');
+const blogRoutes = require('./routes/blog');
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const categoryRoutes = require('./routes/category');
+const tagRoutes = require('./routes/tag');
 // app 
 const app = express();
 
@@ -28,11 +28,11 @@ app.use(cookieParser());
 app.use(cors({origin: `${process.env.CLIENT_URL}`}));
 
 //router
-app.use('/api', blogRouter)
-app.use('/api', authRouter)
-app.use('/api', userRouter)
-app.use('/api', categoryRouter)
-app.use('/api', tagRouter)
+app.use('/api', blogRoutes);
+app.use('/api', authRoutes);
+app.use('/api', userRoutes);
+app.use('/api', categoryRoutes);
+app.use('/api', tagRoutes);
 // server
 
 app.listen(port, () => {

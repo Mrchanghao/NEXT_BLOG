@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {signUp, isAuth} from '../../actions/auth'
 import { ShowError, ShowLoading, ShowMessage } from '../Loading';
 import Link from 'next/link';

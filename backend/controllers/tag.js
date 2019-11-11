@@ -49,7 +49,7 @@ exports.read = (req, res) => {
 exports.remove = (req, res) => {
   const slug = req.params.slug.toLowerCase();
 
-  Tag.findOneAndDelete({slug})
+  Tag.findOneAndRemove({slug})
     .then(data => {
       res.json({
         message: 'Tag deleted'

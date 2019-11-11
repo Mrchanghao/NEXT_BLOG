@@ -45,7 +45,7 @@ const SignInComponent = () => {
     })
     .catch(err => {
       setValues({...values, error: err.message, loading: false})
-      console.log(err)
+      console.log(err.message)
     })
     // console.table({name, email, password})
     // async await 로 리팩토링 해야함
