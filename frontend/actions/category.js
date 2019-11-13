@@ -5,6 +5,8 @@ import Cookie from 'js-cookie';
 export const createCategory = (category, token) => {
   return axios.post(`${API}/category`, category, {
     headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     }
   })
@@ -21,6 +23,8 @@ export const singleCategory = (slug) => {
 export const removeCategory = (slug, token) => {
   return axios.delete(`${API}/category/${slug}`, {
     headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     }
   })

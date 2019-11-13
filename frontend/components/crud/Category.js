@@ -58,7 +58,7 @@ const Category = () => {
         console.log('delete', slug);
         try {
           const  data = await removeCategory(slug, token)
-          setValues({...values, error: false, success: false, name: '', removed: !removed, reload: !reload});
+          setValues({ ...values, error: false, success: false, name: '', removed: !removed, reload: !reload });
           
         } catch (error) {
           console.log(error.message)
